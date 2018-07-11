@@ -8,6 +8,7 @@ const cards = ["fa fa-diamond", "fa fa-diamond", "fa fa-paper-plane-o", "fa fa-p
 const cardsContainer = document.querySelector(".deck");
 
 let openCards = [];
+let matchedCards = [];
 
 
 //create Gameboard
@@ -19,19 +20,35 @@ function createGameBoard() {
     newCard.innerHTML = `<i class = "${cards[i]}"></i>`;
     cardsContainer.appendChild(newCard);
 
-    //card click
+    //card click & .push to openCards array
     newCard.addEventListener("click", function() {
+
+      //Second Card
       if (openCards.length === 1) {
 
         newCard.classList.add("open", "show");
         openCards.push(this);
 
+        //Compare Cards
         if (this.innerHTML === openCards[0].innerHTML) {
-          console.log("This is a Match..");
+
+          this.classList.add("match");
+          openCards[0].classList.add("match");
+
+          //push matched cards to matchedCards array
+          matchedCards.push(this, openCards[0]);
+
+          openCards = [];
+
+        //not a match
         } else {
-          console.log("This is Not a Match..");
+          this.classList.remove("open", "show");
+          openCards[0].classList.remove("open", "show");
+
+          openCards = [];
         }
 
+      //first Card
       } else {
         newCard.classList.add("open", "show");
         openCards.push(this);
@@ -39,6 +56,14 @@ function createGameBoard() {
       }
 
     });
+
+  }
+}
+
+function isGameOver () {
+  if (matchedCards.length === 16) {
+    console.log("You are the Winner!!!")
+  } else {
 
   }
 }
