@@ -1,11 +1,13 @@
 
 //Create a list that holds all of your cards
 const cards = ["fa fa-diamond", "fa fa-diamond", "fa fa-paper-plane-o", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-anchor",
-"fa fa-bolt", "fa fa-bolt", "fa fa-cube", "fa fa-cube", "fa fa-anchor", "fa fa-anchor", "fa fa-leaf", "fa fa-leaf", "fa fa-bicycle", "fa fa-bicycle"];
+"fa fa-bolt", "fa fa-bolt", "fa fa-cube", "fa fa-cube", "fa fa-bomb", "fa fa-bomb", "fa fa-leaf", "fa fa-leaf", "fa fa-bicycle", "fa fa-bicycle"];
 
 
 
 const cardsContainer = document.querySelector(".deck");
+
+let openCards = [];
 
 
 //create Gameboard
@@ -19,7 +21,23 @@ function createGameBoard() {
 
     //card click
     newCard.addEventListener("click", function() {
-      newCard.classList.add("open", "show");
+      if (openCards.length === 1) {
+
+        newCard.classList.add("open", "show");
+        openCards.push(this);
+
+        if (this.innerHTML === openCards[0].innerHTML) {
+          console.log("This is a Match..");
+        } else {
+          console.log("This is Not a Match..");
+        }
+
+      } else {
+        newCard.classList.add("open", "show");
+        openCards.push(this);
+
+      }
+
     });
 
   }
