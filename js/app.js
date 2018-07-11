@@ -26,26 +26,35 @@ function createGameBoard() {
       //Second Card
       if (openCards.length === 1) {
 
+        const currentCard = this;
+        const previousCard = openCards[0];
+
         newCard.classList.add("open", "show");
-        openCards.push(this);
+        openCards.push(currentCard);
 
         //Compare Cards
-        if (this.innerHTML === openCards[0].innerHTML) {
+        if (currentCard.innerHTML === previousCard.innerHTML) {
 
-          this.classList.add("match");
-          openCards[0].classList.add("match");
+          currentCard.classList.add("match");
+          previousCard.classList.add("match");
 
           //push matched cards to matchedCards array
-          matchedCards.push(this, openCards[0]);
+          matchedCards.push(currentCard, previousCard);
 
           openCards = [];
+
+          //check if the gmae is won
+          isGameOver();
 
         //not a match
         } else {
-          this.classList.remove("open", "show");
-          openCards[0].classList.remove("open", "show");
 
-          openCards = [];
+          setTimeout (function () {
+            currentCard.classList.remove("open", "show");
+            previousCard.classList.remove("open", "show");
+            openCards = [];
+          }, 500);
+
         }
 
       //first Card
@@ -61,11 +70,10 @@ function createGameBoard() {
 }
 
 function isGameOver () {
-  if (matchedCards.length === 16) {
+  if (matchedCards.length === cards.length) {
     console.log("You are the Winner!!!")
-  } else {
-
   }
+
 }
 
 createGameBoard();
