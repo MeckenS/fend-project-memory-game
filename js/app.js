@@ -32,6 +32,9 @@ function createGameBoard() {
         newCard.classList.add("open", "show", "disable");
         openCards.push(currentCard);
 
+        //add a move
+        addMove();
+
         //Compare Cards
         if (currentCard.innerHTML === previousCard.innerHTML) {
 
@@ -76,7 +79,18 @@ function isGameOver () {
 
 }
 
-//restart Game
+/*
+ * add move
+ */
+movesContainer = document.querySelector(".moves");
+let moves = 0;
+function addMove() {
+  moves++;
+  movesContainer.innerHTML = moves;
+}
+/*
+ * restart Game
+ */
 const restart = document.querySelector(".restart");
 restart.addEventListener("click", function() {
   //delete cards
@@ -88,6 +102,8 @@ restart.addEventListener("click", function() {
   //delete previous matchedCards
   matchedCards = [];
   openCards = [];
+  moves = 0;
+  movesContainer.innerHTML = 0;
 });
 
 createGameBoard();
