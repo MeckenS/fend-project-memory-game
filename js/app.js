@@ -29,7 +29,7 @@ function createGameBoard() {
         const currentCard = this;
         const previousCard = openCards[0];
 
-        newCard.classList.add("open", "show");
+        newCard.classList.add("open", "show", "disable");
         openCards.push(currentCard);
 
         //Compare Cards
@@ -50,8 +50,8 @@ function createGameBoard() {
         } else {
 
           setTimeout (function () {
-            currentCard.classList.remove("open", "show");
-            previousCard.classList.remove("open", "show");
+            currentCard.classList.remove("open", "show", "disable");
+            previousCard.classList.remove("open", "show", "disable");
             openCards = [];
           }, 500);
 
@@ -59,7 +59,7 @@ function createGameBoard() {
 
       //first Card
       } else {
-        newCard.classList.add("open", "show");
+        newCard.classList.add("open", "show", "disable");
         openCards.push(this);
 
       }
@@ -75,6 +75,20 @@ function isGameOver () {
   }
 
 }
+
+//restart Game
+const restart = document.querySelector(".restart");
+restart.addEventListener("click", function() {
+  //delete cards
+  cardsContainer.innerHTML = "";
+
+  //reload cards
+  createGameBoard();
+
+  //delete previous matchedCards
+  matchedCards = [];
+  openCards = [];
+});
 
 createGameBoard();
 
