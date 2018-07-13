@@ -32,8 +32,11 @@ function createGameBoard() {
         newCard.classList.add("open", "show", "disable");
         openCards.push(currentCard);
 
-        //add a move
+        //add a move to counter
         addMove();
+
+        //rate how many moves used
+        ratingSystem();
 
         //Compare Cards
         if (currentCard.innerHTML === previousCard.innerHTML) {
@@ -72,6 +75,29 @@ function createGameBoard() {
   }
 }
 
+/*
+ * Rating system
+ */
+const starsContainer = document.querySelector(".stars");
+
+function ratingSystem() {
+
+  switch (moves) {
+    case 22:
+      starsContainer.innerHTML = `<li><i class="fa fa-star"></i></li>
+      <li><i class="fa fa-star"></i></li>`;
+    break;
+
+    case 30:
+      starsContainer.innerHTML = `<li><i class="fa fa-star"></i></li>`;
+    break;
+
+  }
+
+}
+/*
+ * Has the game been won
+ */
 function isGameOver () {
   if (matchedCards.length === cards.length) {
     console.log("You are the Winner!!!")
@@ -95,6 +121,11 @@ const restart = document.querySelector(".restart");
 restart.addEventListener("click", function() {
   //delete cards
   cardsContainer.innerHTML = "";
+
+  //reload stars
+  starsContainer.innerHTML = `<li><i class="fa fa-star"></i></li>
+  <li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li>`;
+
 
   //reload cards
   createGameBoard();
