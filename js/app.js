@@ -11,6 +11,7 @@ let openCards = [];
 let matchedCards = [];
 
 
+
 //create Gameboard
 function createGameBoard() {
   shuffle(cards);
@@ -124,7 +125,7 @@ restart.addEventListener("click", function() {
 
   //reload stars
   starsContainer.innerHTML = `<li><i class="fa fa-star"></i></li>
-  <li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li>`;
+  <li><i class="fa fa-star"></i></li> <li><i class="fa fa-star"></i></li>`;
 
 
   //reload cards
@@ -137,7 +138,23 @@ restart.addEventListener("click", function() {
   movesContainer.innerHTML = 0;
 });
 
-createGameBoard();
+/*
+ * Game timer
+ */
+let time = 0;
+let setInet;
+const timerClass = document.querySelector(".timer");
+
+function setTimer() {
+  theCards.removeEventListener("click", setTimer);
+  setInet = setInterval(gameTimer, 1000);
+}
+
+function gameTimer() {
+  time++;
+  timerClass.innerHTML = time;
+}
+
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -153,6 +170,12 @@ function shuffle(array) {
 
     return array;
 }
+
+createGameBoard();
+
+//start game timer
+const theCards = document.querySelector(".card");
+theCards.addEventListener("click", setTimer);
 
 
 /*
