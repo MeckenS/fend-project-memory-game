@@ -9,6 +9,7 @@ const cardsContainer = document.querySelector(".deck");
 
 let openCards = [];
 let matchedCards = [];
+let clickedCards = [];
 
 
 
@@ -23,6 +24,13 @@ function createGameBoard() {
 
     //card click & .push to openCards array
     newCard.addEventListener("click", function() {
+
+     //keep track of clicked cards to know to start timer
+      clickedCards.push(this);
+
+      if (clickedCards.length === 1) {
+        setTimer();
+      }
 
       //Second Card
       if (openCards.length === 1) {
@@ -132,10 +140,20 @@ restart.addEventListener("click", function() {
   createGameBoard();
 
   //delete previous matchedCards
+  clickedCards = [];
   matchedCards = [];
   openCards = [];
   moves = 0;
   movesContainer.innerHTML = 0;
+
+  //restart timer
+  timerClass.innerHTML = "";
+  time = 0;
+  clearInterval(setInet);
+  if (clickedCards.length === 1) {
+    setTimer();
+  }
+
 });
 
 /*
@@ -146,7 +164,6 @@ let setInet;
 const timerClass = document.querySelector(".timer");
 
 function setTimer() {
-  theCards.removeEventListener("click", setTimer);
   setInet = setInterval(gameTimer, 1000);
 }
 
@@ -173,9 +190,6 @@ function shuffle(array) {
 
 createGameBoard();
 
-//start game timer
-const theCards = document.querySelector(".card");
-theCards.addEventListener("click", setTimer);
 
 
 /*
