@@ -111,3 +111,17 @@ h1 {
     float: right;
     cursor: pointer;
 }
+
+i.fa.fa-star {
+  color: gold;
+}
+
+/*
+* Styles for timer
+*/
+
+.timer {
+  display :inline-block;
+  padding-left: 70px;
+  padding-right: 50px;
+}

@@ -68,7 +68,7 @@ function createGameBoard() {
             currentCard.classList.remove("open", "show", "disable");
             previousCard.classList.remove("open", "show", "disable");
             openCards = [];
-          }, 500);
+          }, 300);
 
         }
 
