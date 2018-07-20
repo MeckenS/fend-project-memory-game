@@ -147,8 +147,9 @@ restart.addEventListener("click", function() {
   movesContainer.innerHTML = 0;
 
   //restart timer
-  timerClass.innerHTML = "";
-  time = 0;
+  timerClass.innerHTML = "00:00";
+  secs = 0;
+  mins = "0" + 0;
   clearInterval(setInet);
   if (clickedCards.length === 1) {
     setTimer();
@@ -159,7 +160,8 @@ restart.addEventListener("click", function() {
 /*
  * Game timer
  */
-let time = 0;
+let secs = 0;
+let mins = "0" + 0;
 let setInet;
 const timerClass = document.querySelector(".timer");
 
@@ -168,8 +170,19 @@ function setTimer() {
 }
 
 function gameTimer() {
-  time++;
-  timerClass.innerHTML = time;
+  if (secs < 59) {
+    secs++;
+    if (secs < 10) {
+      secs = "0" + secs;
+    }
+  } else {
+    secs = "0" + 0;
+    mins++;
+    if (mins < 10)
+    mins = "0" + mins;
+  }
+
+  timerClass.innerHTML = mins + ":" + secs;
 }
 
 
