@@ -109,7 +109,7 @@ function ratingSystem() {
  */
 function isGameOver () {
   if (matchedCards.length === cards.length) {
-    console.log("You are the Winner!!!")
+    openModel();
   }
 
 }
@@ -184,6 +184,20 @@ function gameTimer() {
 
   timerClass.innerHTML = mins + ":" + secs;
 }
+
+/*
+ * Open Modal
+ */
+ const winningTime = document.querySelector(".winnig-time");
+ const winningRating = document.querySelector(".winning-rating");
+ const bgModal = document.querySelector(".bg-modal");
+
+ function openModel() {
+   clearInterval(setInet);
+   bgModal.style.display = "flex";
+   winningTime.innerHTML = "You finished the game with a time of " + timerClass.innerHTML;
+   winningRating.innerHTML = "and a rating of " + starsContainer.innerHTML;
+ }
 
 
 // Shuffle function from http://stackoverflow.com/a/2450976
