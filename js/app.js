@@ -127,7 +127,9 @@ function addMove() {
  * restart Game
  */
 const restart = document.querySelector(".restart");
-restart.addEventListener("click", function() {
+restart.addEventListener("click", restartGame);
+
+function restartGame() {
   //delete cards
   cardsContainer.innerHTML = "";
 
@@ -155,7 +157,7 @@ restart.addEventListener("click", function() {
     setTimer();
   }
 
-});
+}
 
 /*
  * Game timer
@@ -207,6 +209,17 @@ const closeModal = document.querySelector(".fa.fa-close");
 closeModal.addEventListener("click", function() {
   bgModal.style.display = "none";
 });
+
+/*
+ * Play Again
+ */
+ const playAgain = document.querySelector(".btn");
+
+ playAgain.addEventListener("click", function() {
+   restartGame();
+   bgModal.style.display = "none";
+ });
+
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
