@@ -197,7 +197,7 @@ function gameTimer() {
  function openModel() {
    clearInterval(setInet);
    bgModal.style.display = "flex";
-   winningTime.innerHTML = "You finished the game with a time of " + timerClass.innerHTML;
+   winningTime.innerHTML = `<p>You finished the game with a time of <b>${timerClass.innerHTML}</b></p>`;
    winningRating.innerHTML = "and a rating of " + starsContainer.innerHTML;
  }
 
