@@ -199,6 +199,14 @@ function gameTimer() {
    winningRating.innerHTML = "and a rating of " + starsContainer.innerHTML;
  }
 
+ /*
+  * close Modal
+  */
+const closeModal = document.querySelector(".fa.fa-close");
+
+closeModal.addEventListener("click", function() {
+  bgModal.style.display = "none";
+});
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
