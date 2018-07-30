@@ -2,7 +2,7 @@
 
 ## How to play the game
 
-Click on a block to reveal a hidden image. Click on another block to reveal it's image, if the second block is a matching image from the first block clicked on they both will remain flipped, showing the image, if not they both will return to the original blank position. You will repeat this process until all images have been matched and are visible on the game board, once all images have been matched and are visible on the game board, the game has been won.
+Click on a block to reveal a hidden image. Click on another block to reveal it's image. If the second block is a matching image from the first block, they both will remain flipped showing the image. If not, they both will return to the original blank position. You will repeat this process until all images have been matched and are visible on the game board. Once all images have been matched and are visible on the game board, the game has been won.
 
 ## What the user can expect from the game
 
