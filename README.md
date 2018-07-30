@@ -1,20 +1,23 @@
-# Memory Game Project
+# The Memory Game
 
-## Table of Contents
+## How to play the game
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+Click on a block to reveal a hidden image. Click on another block to reveal it's image, if the second block is a matching image from the first block clicked on they both will remain flipped, showing the image, if not they both will return to the original blank position. You will repeat this process until all images have been matched and are visible on the game board, once all images have been matched and are visible on the game board, the game has been won.
 
-## Instructions
+## What the user can expect from the game
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+* Once the first block is clicked a timer will start to keep track of how long it takes you to complete the game.
+* You will receive a star rating based on how many moves it takes you to complete the game.
+  * If you complete the game in 21 moves or less a 3 star rating will be received.
+  * If you complete the game in 29 moves or less a 2 star rating will be received.  
+  * If you complete the game in 30 moves or more a 1 star rating will be received.
+* Once the game is completed a pop up will appear to congratulate you on completion of the game, tell you the time it took to complete, your star rating, and ask if you would like to play again.
+* The restart button can be clicked at anytime to completely restart the game and the images will be randomly placed in new locations.
 
-To get started, open `js/app.js` and start building out the app's functionality
+## Dependencies
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
-
-## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+* Bootstrap
+  * For the images
+* Google
+  * For the fonts
+* There are no dependencies for the javaScript code.
